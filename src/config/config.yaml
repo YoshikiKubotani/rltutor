@@ -1,0 +1,38 @@
+# ppo agent hyperparameter
+gamma: 0.85
+lambd: 0.95
+value_func_coef: 0.5
+entropy_coef: 0.01
+clip_eps: 0.2
+lr: 0.0001
+
+# inner model hyperparameter
+coefs: [0.5, 1, 1, 1, 1, 1, 1] # coefficients in loss function of inner model
+log_reward: True # The flag of whether we make the reward of inner model is of log-scale
+inner_lr: 0.05
+
+# experiment hyperparameter
+days: 15 # The number of days we expect our experiment to continue
+num_items: 30 # The number of question items the instructional target(student) to remember
+skills: 15 # The total number of skills (each item is connected to a few skills)
+time_windows: 5 # The number of time windows
+steps_per_updates: 200 # how many steps the ppo agent will make when it generates one trajectory
+updates: 100 # how many times the ppo agent will update its policy
+parallel_envs: 20 # The number of agent batch
+num_items_for_pre_test: 20 # The number of items presented in the initial test
+num_items_for_each_session: 10 # The number of items presented in each session
+num_sessions_per_day: 2 # How many times we expect the instructional target (student) to engage in the tutoring session
+interval: 30 # the interval seconds between each item presentation in sessions
+seed: 1
+
+hydra:
+  run:
+    dir: src/result/single/${now:%Y-%m-%d_%H-%M-%S}/${hydra.job.override_dirname}/seed=${seed}
+  sweep:
+    dir: src/result/sweep/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: seed=${seed}/${hydra.job.override_dirname}
+  job:
+    config:
+      override_dirname:
+        exclude_keys:
+          - seed

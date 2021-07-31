@@ -1,0 +1,11 @@
+__pycache__
+.vscode
+.ipynb_checkpoints
+.DS_Store
+/src/result/single/
+/src/result/sweep/
+*.ipynb
+*.csv
+*.json
+*.npz
+.python-version
