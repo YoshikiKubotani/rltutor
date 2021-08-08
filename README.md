@@ -1,5 +1,5 @@
 # RLTutor
-This repository is the official code introduced in our paper: [RLTutor: Reinforcement Learning Based Adaptive Tutoring System by Modeling Virtual Student with Fewer Interactions](), AI4EDU workshop at IJCAI 2021.
+This repository is the official code introduced in our paper: [RLTutor: Reinforcement Learning Based Adaptive Tutoring System by Modeling Virtual Student with Fewer Interactions](https://arxiv.org/abs/2108.00268), AI4EDU workshop at IJCAI 2021.
 
 ## Prerequisites
 After cloning this repository, it is required to work though the following two instructions to run the experiment.
